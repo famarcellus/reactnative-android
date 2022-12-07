@@ -1,4 +1,3 @@
-import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {ActivityIndicator} from 'react-native';
 import {StyleProp} from 'react-native';
@@ -8,9 +7,9 @@ import commonStyle from '../../style/common.style';
 type AppButtonProps = {
   onPress: () => void;
   buttonStyles: StyleProp<any>;
-  loading: Boolean;
+  loading: boolean;
   textStyles: StyleProp<any>;
-  buttonText: String;
+  buttonText: string;
 };
 
 export const AppButton = (props: AppButtonProps) => {
