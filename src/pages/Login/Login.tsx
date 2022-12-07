@@ -9,8 +9,14 @@ import {EmailField} from '../../components/InputField/EmailField';
 import {PasswordField} from '../../components/InputField/PasswordField';
 import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
+import PageContainer from '../PageContainer';
+import {RootStackParamList} from '../../../App';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-export const Login = () => {
+type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+
+export const Login = (props: LoginProps) => {
+  console.log('Login app loaded');
   const validate = () => {
     const valid =
       validEmailState &&
@@ -27,6 +33,12 @@ export const Login = () => {
         setTimeout(() => {
           send('LOGIN');
           setIncorrectInfoState(!isCorrectPattern);
+          const newUserId = Math.floor(Math.random() * 100) + 1;
+          props.navigation.navigate('Dashboard', {
+            userId: newUserId,
+            email: emailState,
+            name: 'Fabio',
+          });
         }, 1800);
       }
       if (!isCorrectPattern) {
@@ -51,7 +63,7 @@ export const Login = () => {
   const secondInputRef: React.MutableRefObject<any> = useRef();
 
   return (
-    <>
+    <PageContainer>
       <View style={styles.headerContainer}>
         <Text style={styles.loginHeader}>Log In</Text>
       </View>
@@ -106,7 +118,7 @@ export const Login = () => {
         </Text>
         <SecondaryButton buttonText="Sign Up" onPress={() => console.log('')} />
       </View>
-    </>
+    </PageContainer>
   );
 };
 
