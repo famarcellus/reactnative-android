@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
   statusHeightMargin: {
-    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 65 : 65,
+    paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 25 : 35,
   },
   screenContainer: {
     paddingBottom: 150,

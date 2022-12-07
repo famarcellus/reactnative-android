@@ -54,7 +54,7 @@ export default StyleSheet.create({
   form: {
     display: 'flex',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 25,
   },
 
   button: {

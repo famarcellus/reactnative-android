@@ -92,9 +92,7 @@ export const Login = () => {
           onInputChange={onPasswordChange}
           validState={validPasswordState}
           onChangeValidity={setValidPasswordState}
-          onSubmitEditing={() => {
-            validate();
-          }}
+          onSubmitEditing={() => validate()}
         />
         <PrimaryButton
           buttonText={
@@ -106,10 +104,7 @@ export const Login = () => {
         <Text style={styles.secondaryButtonLabel}>
           Don't Have An Account Yet?
         </Text>
-        <SecondaryButton
-          buttonText="Sign Up"
-          onPress={() => console.log('does nothing')}
-        />
+        <SecondaryButton buttonText="Sign Up" onPress={() => console.log('')} />
       </View>
     </>
   );
@@ -130,7 +125,7 @@ const styles = StyleSheet.create({
 
   welcomeText: {
     fontWeight: '500',
-    marginTop: 55,
+    marginTop: 45,
   },
 
   falseInfo: {
