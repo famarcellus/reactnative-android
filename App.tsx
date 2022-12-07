@@ -1,6 +1,6 @@
 import React from 'react';
-import {ScrollView, View, Text, StyleSheet, StatusBar} from 'react-native';
-// import {Login} from './src/pages/Login/Login';
+import {ScrollView, View, StyleSheet, StatusBar} from 'react-native';
+import {Login} from './src/pages/Login/Login';
 import commonStyle from './src/style/common.style';
 
 const App = () => {
@@ -13,11 +13,9 @@ const App = () => {
           commonStyle.elementWidth,
           commonStyle.flex,
           commonStyle.alignItemsCenter,
-        ]}
-        // contentContainerStyle={{alignItems: 'center'}}>
-      >
-        {/* <Login /> */}
-        <Text>Hello there</Text>
+          styles.screenContainer,
+        ]}>
+        <Login />
       </View>
     </ScrollView>
   );
@@ -25,12 +23,16 @@ const App = () => {
 
 const styles = StyleSheet.create({
   appContainer: {
-    paddingHorizontal: 100,
+    paddingHorizontal: 20,
     display: 'flex',
     backgroundColor: '#f7f7f7',
+    paddingBottom: 100,
   },
   statusHeightMargin: {
     paddingTop: StatusBar.currentHeight ? StatusBar.currentHeight + 65 : 65,
+  },
+  screenContainer: {
+    paddingBottom: 150,
   },
 });
 

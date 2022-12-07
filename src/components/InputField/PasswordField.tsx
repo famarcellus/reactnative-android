@@ -7,12 +7,7 @@ import {
 import InputField from './InputField';
 
 type PasswordFieldProps = {
-  label: string;
-  autoFocus: boolean | undefined;
-  errorText: string;
   validState: boolean;
-  placeholder: string;
-  secureTextEntry: boolean;
   inputState: string;
   onInputChange: React.Dispatch<React.SetStateAction<string>>;
   onChangeValidity: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,9 +33,9 @@ export const PasswordField = forwardRef((props: PasswordFieldProps, ref) => {
   return (
     <InputField
       ref={ref}
-      label={props?.label || 'Password'}
+      label="Password"
       autoFocus={false}
-      placeholder={props.placeholder || 'Password'}
+      placeholder="Password"
       keyboardType="default"
       secureTextEntry={true}
       inputState={props.inputState}

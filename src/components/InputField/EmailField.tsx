@@ -7,12 +7,7 @@ import {
 import InputField from './InputField';
 
 type EmailFieldProps = {
-  label: string;
-  autoFocus: boolean | undefined;
-  errorText: string;
   validState: boolean;
-  placeholder: string;
-  secureTextEntry: boolean;
   inputState: string;
   onInputChange: React.Dispatch<React.SetStateAction<string>>;
   onChangeValidity: React.Dispatch<React.SetStateAction<boolean>>;

@@ -19,6 +19,7 @@ export default StyleSheet.create({
   },
   elementWidth: {
     width: 270,
+    // width: 350,
   },
   semiBoldWeight: {
     fontWeight: semiBoldText,
@@ -31,6 +32,12 @@ export default StyleSheet.create({
   },
   justifyContentCenter: {
     justifyContent: 'center',
+  },
+  visible: {
+    opacity: 1,
+  },
+  invisible: {
+    opacity: 0,
   },
 
   h1Text: {

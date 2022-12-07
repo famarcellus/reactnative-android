@@ -54,7 +54,7 @@ const InputField = forwardRef(
         <Text
           style={[
             styles.inlineError,
-            !props.validState ? styles.visible : styles.invisible,
+            !props.validState ? commonStyle.visible : commonStyle.invisible,
           ]}>
           {props.errorText}
         </Text>
@@ -73,12 +73,6 @@ const styles = StyleSheet.create({
   errorBorder: {
     borderColor: 'red',
     borderWidth: 1,
-  },
-  visible: {
-    opacity: 1,
-  },
-  invisible: {
-    opacity: 0,
   },
 });
 
