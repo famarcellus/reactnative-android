@@ -8,6 +8,7 @@ import {postsData} from '../../data/postsData';
 import {Post} from '../../types/post';
 import commonStyle from '../../style/common.style';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
+import {userData} from '../../data/userData';
 
 type FeedScreenNavigationProp = FeedProps['navigation'];
 
@@ -27,8 +28,8 @@ export const Feed = ({route, navigation}: FeedProps) => {
       <Text style={commonStyle.h1Text}>Feed Page</Text>
       <Text style={styles.explanation}>
         Populated with posts from communities the user has subscribed/visited.
-        This data is retrieved using their userId data. Listed in order of
-        latest posts first.
+        This data is retrieved the user's id.{userData.userId} Listed in order
+        of latest posts first.
       </Text>
       <Text>Below this line, there are the lists of posts.</Text>
       {postsData.map(post => {

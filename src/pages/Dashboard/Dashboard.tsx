@@ -8,8 +8,6 @@ import {HomeStackScreen} from '../Home/HomeStackScreen';
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export const Dashboard = ({route, navigation}: DashboardProps) => {
-  const {userId} = route.params;
-
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen name="Home" component={HomeStackScreen} />

@@ -11,6 +11,7 @@ import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
 import PageContainer from '../PageContainer';
 import {LoginProps} from '../../types/navigation';
+import {userData} from '../../data/userData';
 
 export const Login = (props: LoginProps) => {
   console.log('Login app loaded');
@@ -30,9 +31,7 @@ export const Login = (props: LoginProps) => {
         setTimeout(() => {
           send('LOGIN');
           setIncorrectInfoState(!isCorrectPattern);
-          const newUserId = Math.floor(Math.random() * 100) + 1;
           props.navigation.navigate('Dashboard', {
-            userId: newUserId,
             screen: 'Home',
           });
         }, 1800);

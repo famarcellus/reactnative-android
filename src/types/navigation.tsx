@@ -4,7 +4,6 @@ import type {StackScreenProps} from '@react-navigation/stack';
 export type NativeRootStackParamList = {
   Login: undefined;
   Dashboard: {
-    userId: number;
     screen: string;
   };
 };
