@@ -37,7 +37,8 @@ export const Login = (props: LoginProps) => {
           props.navigation.navigate('Dashboard', {
             userId: newUserId,
             email: emailState,
-            name: 'Fabio',
+            screen: 'Friends',
+            params: {sortMethod: 'BestFriendsFirst'},
           });
         }, 1800);
       }

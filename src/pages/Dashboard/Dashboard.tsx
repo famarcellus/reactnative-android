@@ -1,26 +1,34 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useState} from 'react';
 import {RootStackParamList} from '../../../App';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import PageContainer from '../PageContainer';
-// import commonStyle from '../../style/common.style';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
-type DashboardProps = NativeStackScreenProps<RootStackParamList, 'Dashboard'>;
+import {FriendsMessages} from './Messages/FriendsMessages';
+import {MessageRequests} from './Messages/MessageRequests';
+
+export type DashboardProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Dashboard'
+>;
+
+export type MessageStackParamList = {
+  Friends: {sortMethod: string};
+  Requests: {sortMethod: string};
+};
+
+const MessageStack = createStackNavigator<MessageStackParamList>();
 
 export const Dashboard = ({route, navigation}: DashboardProps) => {
-  const {userId} = route.params;
-  const {name} = route.params;
-  const {email} = route.params;
+  //   const {userId} = route.params;
+  //   const {email} = route.params;
+  //   const [currentMsgSection, setCurrentMsgSection] = useState(
+  //     route.params.screen,
+  //   );
 
   return (
-    <PageContainer>
-      <View>
-        <Text>Dashboard Page</Text>
-        <Text>
-          {name} - {userId}
-        </Text>
-        <Text>Email Address - {email}</Text>
-      </View>
-    </PageContainer>
+    <MessageStack.Navigator screenOptions={{headerShown: false}}>
+      <MessageStack.Screen name="Friends" component={FriendsMessages} />
+      <MessageStack.Screen name="Requests" component={MessageRequests} />
+    </MessageStack.Navigator>
   );
 };
