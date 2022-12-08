@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 import {FeedProps} from '../../types/navigation';
 import PageContainer from '../PageContainer';
 import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {postsData} from '../../data/postsData';
 import {Post} from '../../types/post';
+import commonStyle from '../../style/common.style';
+import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
 
 type FeedScreenNavigationProp = FeedProps['navigation'];
 
@@ -22,27 +24,42 @@ function goToPostDetails(post: Post, navigation: FeedScreenNavigationProp) {
 export const Feed = ({route, navigation}: FeedProps) => {
   return (
     <PageContainer>
-      <Text>Feed Page displays posts to the user.</Text>
-      <Text>
-        User's Feed page is populated with posts from communities they've
-        subscribed to and/or visited. This data is retrieved using their userId
-        data. Listed in order of latest posts first.
+      <Text style={commonStyle.h1Text}>Feed Page</Text>
+      <Text style={styles.explanation}>
+        Populated with posts from communities the user has subscribed/visited.
+        This data is retrieved using their userId data. Listed in order of
+        latest posts first.
       </Text>
       <Text>Below this line, there are the lists of posts.</Text>
       {postsData.map(post => {
         const {title, commentsAmount, postId} = post;
         return (
           <View>
-            <PrimaryButton
-              key={postId}
-              loading={false}
-              onPress={() => goToPostDetails(post, navigation)}
-              buttonText={`${title}`}
-            />
-            <Text>{commentsAmount} comments</Text>
+            <View style={styles.postContainer}>
+              <SecondaryButton
+                key={postId}
+                onPress={() => goToPostDetails(post, navigation)}
+                buttonText={`${title}`}
+              />
+              <Text>{commentsAmount} comments</Text>
+            </View>
           </View>
         );
       })}
     </PageContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontWeight: 'bold',
+  },
+  explanation: {
+    marginTop: 50,
+    marginBottom: 50,
+  },
+  postContainer: {
+    marginTop: 25,
+    marginBottom: 15,
+  },
+});

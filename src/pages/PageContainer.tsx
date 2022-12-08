@@ -27,7 +27,7 @@ const PageContainer = (props: PageContainerProps) => {
 
 const styles = StyleSheet.create({
   appContainer: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     display: 'flex',
     // backgroundColor: '#f7f7f7',
     paddingBottom: 100,
