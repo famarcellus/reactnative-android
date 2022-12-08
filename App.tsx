@@ -5,34 +5,19 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {Login} from './src/pages/Login/Login';
 import {Dashboard} from './src/pages/Dashboard/Dashboard';
+import {NativeRootStackParamList} from './src/types/navigation';
 
-export type RootStackParamList = {
-  Login: undefined;
-  Dashboard: {
-    userId: number;
-    email: string;
-    screen: string;
-    params: {sortMethod: string};
-  };
-};
-
-const RootStack = createNativeStackNavigator<RootStackParamList>();
+const NativeRootStack = createNativeStackNavigator<NativeRootStackParamList>();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Login">
-        <RootStack.Screen
-          name="Login"
-          component={Login}
-          options={{headerShown: false}}
-        />
-        <RootStack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{title: 'My Dashboard'}}
-        />
-      </RootStack.Navigator>
+      <NativeRootStack.Navigator
+        initialRouteName="Login"
+        screenOptions={{headerShown: false}}>
+        <NativeRootStack.Screen name="Login" component={Login} />
+        <NativeRootStack.Screen name="Dashboard" component={Dashboard} />
+      </NativeRootStack.Navigator>
     </NavigationContainer>
   );
 };

@@ -10,10 +10,7 @@ import {PasswordField} from '../../components/InputField/PasswordField';
 import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
 import PageContainer from '../PageContainer';
-import {RootStackParamList} from '../../../App';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-
-type LoginProps = NativeStackScreenProps<RootStackParamList, 'Login'>;
+import {LoginProps} from '../../types/navigation';
 
 export const Login = (props: LoginProps) => {
   console.log('Login app loaded');
@@ -36,9 +33,7 @@ export const Login = (props: LoginProps) => {
           const newUserId = Math.floor(Math.random() * 100) + 1;
           props.navigation.navigate('Dashboard', {
             userId: newUserId,
-            email: emailState,
-            screen: 'Friends',
-            params: {sortMethod: 'BestFriendsFirst'},
+            screen: 'Home',
           });
         }, 1800);
       }

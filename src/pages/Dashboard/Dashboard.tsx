@@ -1,34 +1,23 @@
 import React, {useState} from 'react';
-import {RootStackParamList} from '../../../App';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {createStackNavigator} from '@react-navigation/stack';
+import {TabParamList, DashboardProps} from '../../types/navigation';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {FriendsMessages} from './Messages/FriendsMessages';
-import {MessageRequests} from './Messages/MessageRequests';
+import {Messages} from '../Messages/Messages';
+import {HomeStackScreen} from '../Home/HomeStackScreen';
 
-export type DashboardProps = NativeStackScreenProps<
-  RootStackParamList,
-  'Dashboard'
->;
-
-export type MessageStackParamList = {
-  Friends: {sortMethod: string};
-  Requests: {sortMethod: string};
-};
-
-const MessageStack = createStackNavigator<MessageStackParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
 
 export const Dashboard = ({route, navigation}: DashboardProps) => {
-  //   const {userId} = route.params;
-  //   const {email} = route.params;
-  //   const [currentMsgSection, setCurrentMsgSection] = useState(
-  //     route.params.screen,
-  //   );
+  const {userId} = route.params;
 
   return (
-    <MessageStack.Navigator screenOptions={{headerShown: false}}>
-      <MessageStack.Screen name="Friends" component={FriendsMessages} />
-      <MessageStack.Screen name="Requests" component={MessageRequests} />
-    </MessageStack.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
+      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen
+        name="Messages"
+        component={Messages}
+        initialParams={{sortMethod: 'latest'}}
+      />
+    </Tab.Navigator>
   );
 };
