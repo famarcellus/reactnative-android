@@ -9,8 +9,12 @@ import {EmailField} from '../../components/InputField/EmailField';
 import {PasswordField} from '../../components/InputField/PasswordField';
 import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
+import PageContainer from '../PageContainer';
+import {LoginProps} from '../../types/navigation';
+import {userData} from '../../data/userData';
 
-export const Login = () => {
+export const Login = (props: LoginProps) => {
+  console.log('Login app loaded');
   const validate = () => {
     const valid =
       validEmailState &&
@@ -27,6 +31,9 @@ export const Login = () => {
         setTimeout(() => {
           send('LOGIN');
           setIncorrectInfoState(!isCorrectPattern);
+          props.navigation.navigate('Dashboard', {
+            screen: 'Home',
+          });
         }, 1800);
       }
       if (!isCorrectPattern) {
@@ -51,7 +58,7 @@ export const Login = () => {
   const secondInputRef: React.MutableRefObject<any> = useRef();
 
   return (
-    <>
+    <PageContainer>
       <View style={styles.headerContainer}>
         <Text style={styles.loginHeader}>Log In</Text>
       </View>
@@ -106,7 +113,7 @@ export const Login = () => {
         </Text>
         <SecondaryButton buttonText="Sign Up" onPress={() => console.log('')} />
       </View>
-    </>
+    </PageContainer>
   );
 };
 

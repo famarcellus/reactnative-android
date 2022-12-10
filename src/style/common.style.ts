@@ -18,7 +18,8 @@ export default StyleSheet.create({
     paddingHorizontal: inputPadding,
   },
   elementWidth: {
-    width: 270,
+    minWidth: 270,
+    maxWidth: 270,
     // width: 350,
   },
   semiBoldWeight: {

@@ -37,7 +37,7 @@ export const AppButton = (props: AppButtonProps) => {
 const styles = StyleSheet.create({
   marginAndSize: {
     marginTop: 10,
-    width: '100%',
+    width: '95%',
   },
   loaderSize: {
     width: 30,
