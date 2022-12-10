@@ -1,4 +1,4 @@
-import {MessagePreview, Recipient} from '../types/messages';
+import {MessagePreview, Recipient} from '../models/messages';
 
 function formatDate(currentDate: Date) {
   const theMonth = currentDate.getMonth();

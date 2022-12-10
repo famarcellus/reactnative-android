@@ -4,7 +4,7 @@ import {Text, View, StyleSheet} from 'react-native';
 import {FeedProps} from '../../types/navigation';
 import PageContainer from '../PageContainer';
 import {postsData} from '../../data/postsData';
-import {Post} from '../../types/post';
+import {Post} from '../../models/post';
 import commonStyle from '../../style/common.style';
 import {SecondaryButton} from '../../components/AppButton/SecondaryButton';
 import {userData} from '../../data/userData';
