@@ -8,6 +8,21 @@ export type NativeRootStackParamList = {
   };
 };
 
+export type TabParamList = {
+  Home: undefined;
+  Messages: {sortMethod: string};
+};
+
+export type HomeStackParamList = {
+  Feed: undefined;
+  PostDetails: {postId: number; title: string; commentsAmount: number};
+};
+
+export type MessagesStackParamList = {
+  Inbox: undefined;
+  MessageDetails: {contactId: number};
+};
+
 export type LoginProps = NativeStackScreenProps<
   NativeRootStackParamList,
   'Login'
@@ -18,13 +33,6 @@ export type DashboardProps = NativeStackScreenProps<
   'Dashboard'
 >;
 
-export type TabParamList = {
-  Home: undefined;
-  Messages: {sortMethod: string};
-};
-
-export type MessagesProps = StackScreenProps<TabParamList, 'Messages'>;
-
 export type FeedProps = StackScreenProps<HomeStackParamList, 'Feed'>;
 
 export type PostDetailsProps = StackScreenProps<
@@ -32,7 +40,9 @@ export type PostDetailsProps = StackScreenProps<
   'PostDetails'
 >;
 
-export type HomeStackParamList = {
-  Feed: undefined;
-  PostDetails: {postId: number; title: string; commentsAmount: number};
-};
+export type InboxProps = StackScreenProps<MessagesStackParamList, 'Inbox'>;
+
+export type MessageDetailsProps = StackScreenProps<
+  MessagesStackParamList,
+  'MessageDetails'
+>;

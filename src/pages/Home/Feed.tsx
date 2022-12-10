@@ -3,7 +3,6 @@ import {Text, View, StyleSheet} from 'react-native';
 
 import {FeedProps} from '../../types/navigation';
 import PageContainer from '../PageContainer';
-import {PrimaryButton} from '../../components/AppButton/PrimaryButton';
 import {postsData} from '../../data/postsData';
 import {Post} from '../../types/post';
 import commonStyle from '../../style/common.style';
@@ -27,9 +26,10 @@ export const Feed = ({route, navigation}: FeedProps) => {
     <PageContainer>
       <Text style={commonStyle.h1Text}>Feed Page</Text>
       <Text style={styles.explanation}>
-        Populated with posts from communities the user has subscribed/visited.
-        This data is retrieved the user's id.{userData.userId} Listed in order
-        of latest posts first.
+        On mount by using useEffect, populate with posts from communities the
+        user has subscribed/visited. This is done by using the user's id to
+        retreieve the data from an api. Current userId: {userData.userId}. Posts
+        are listed in order of latest posts first.
       </Text>
       <Text>Below this line, there are the lists of posts.</Text>
       {postsData.map(post => {
