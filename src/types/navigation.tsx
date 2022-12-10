@@ -20,7 +20,7 @@ export type HomeStackParamList = {
 
 export type MessagesStackParamList = {
   Inbox: undefined;
-  MessageDetails: {contactId: number};
+  MessageDetails: {contactId: number; contactName: string};
 };
 
 export type LoginProps = NativeStackScreenProps<

@@ -6,11 +6,11 @@ import PageContainer from '../PageContainer';
 import commonStyle from '../../style/common.style';
 
 export const MessageDetails = ({route, navigation}: MessageDetailsProps) => {
-  const {contactId} = route.params;
+  const {contactId, contactName} = route.params;
   return (
     <PageContainer>
       <Text>contactId - {contactId}</Text>
-      <Text style={commonStyle.h1Text}>contactName here</Text>
+      <Text style={commonStyle.h1Text}>{contactName}</Text>
       <View>
         <Text>contactImgHere</Text>
         <Text style={styles.explanation}>

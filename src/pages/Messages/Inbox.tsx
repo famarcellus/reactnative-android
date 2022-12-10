@@ -11,10 +11,12 @@ type InboxScreenNavigationProp = InboxProps['navigation'];
 
 function goToMessageDetails(
   contactId: number,
+  name: string,
   navigation: InboxScreenNavigationProp,
 ) {
   navigation.navigate('MessageDetails', {
     contactId: contactId,
+    contactName: name,
   });
 }
 
@@ -38,7 +40,7 @@ export const Inbox = ({route, navigation}: InboxProps) => {
               <Image source={{uri: profileImgUrl, width: 50, height: 50}} />
               <SecondaryButton
                 key={contactId}
-                onPress={() => goToMessageDetails(contactId, navigation)}
+                onPress={() => goToMessageDetails(contactId, name, navigation)}
                 buttonText={`${name} - ${latestMessagePreview} - ${dateSent}`}
               />
             </View>
