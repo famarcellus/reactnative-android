@@ -64,7 +64,7 @@ export default StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     borderRadius: 4,
-    minWidth: '100%',
+    minWidth: '97%',
   },
   primaryButton: {
     backgroundColor: mainColor,
